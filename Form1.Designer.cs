@@ -73,10 +73,16 @@ namespace PMC_2HS_Sample_Program_KOR
             this.Send_btn = new System.Windows.Forms.Button();
             this.suspand_time1_textbox = new System.Windows.Forms.TextBox();
             this.suspand_time2_textbox = new System.Windows.Forms.TextBox();
+            this.SpeedY_time1_textbox = new System.Windows.Forms.TextBox();
+            this.SpeedY_time2_textbox = new System.Windows.Forms.TextBox();
+
             this.Auto_btn = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.suspand_time1_label = new System.Windows.Forms.Label();
             this.suspand_time2_label = new System.Windows.Forms.Label();
+            this.SpeedY_time1_label = new System.Windows.Forms.Label();
+            this.SpeedY_time2_label = new System.Windows.Forms.Label();
+
             this.Response_Textbox = new System.Windows.Forms.TextBox();
             this.POS_Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             Clear_Pos_btn = new System.Windows.Forms.Button();
@@ -431,7 +437,7 @@ namespace PMC_2HS_Sample_Program_KOR
             // 
             // Send_btn
             // 
-            this.Send_btn.Location = new System.Drawing.Point(665, 521);
+            this.Send_btn.Location = new System.Drawing.Point(665, 382);
             this.Send_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Send_btn.Name = "Send_btn";
             this.Send_btn.Size = new System.Drawing.Size(86, 31);
@@ -442,21 +448,37 @@ namespace PMC_2HS_Sample_Program_KOR
             // 
             // suspand_time1_textbox
             this.suspand_time1_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.suspand_time1_textbox.Location = new System.Drawing.Point(390, 516); // 위치 조정
-            this.suspand_time1_textbox.Name = "suspand_time1";
-            this.suspand_time1_textbox.Size = new System.Drawing.Size(164, 25);
+            this.suspand_time1_textbox.Location = new System.Drawing.Point(250, 516); // 위치 조정
+            this.suspand_time1_textbox.Name = "suspand_time1_textbox";
+            this.suspand_time1_textbox.Size = new System.Drawing.Size(150, 25);
             this.suspand_time1_textbox.TabIndex = 76;
 
             // suspand_time2_textbox
             this.suspand_time2_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.suspand_time2_textbox.Location = new System.Drawing.Point(390, 551); // 위치 조정
-            this.suspand_time2_textbox.Name = "suspand_time2";
-            this.suspand_time2_textbox.Size = new System.Drawing.Size(164, 25);
+            this.suspand_time2_textbox.Location = new System.Drawing.Point(250, 551); // 위치 조정
+            this.suspand_time2_textbox.Name = "suspand_time2_textbox";
+            this.suspand_time2_textbox.Size = new System.Drawing.Size(150, 25);
             this.suspand_time2_textbox.TabIndex = 77;
             // 
+            // SpeedY_time1_textbox
+            this.SpeedY_time1_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SpeedY_time1_textbox.Location = new System.Drawing.Point(600, 516); // 위치 조정
+            this.SpeedY_time1_textbox.Name = "SpeedY_time1_textbox";
+            this.SpeedY_time1_textbox.Size = new System.Drawing.Size(150, 25);
+            this.SpeedY_time1_textbox.TabIndex = 78;
+
+            // SpeedY_time2_textbox
+            this.SpeedY_time2_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SpeedY_time2_textbox.Location = new System.Drawing.Point(600, 551); // 위치 조정
+            this.SpeedY_time2_textbox.Name = "SpeedY_time2_textbox";
+            this.SpeedY_time2_textbox.Size = new System.Drawing.Size(150, 25);
+            this.SpeedY_time2_textbox.TabIndex = 79;
+
+            // 
+
             // Auto_btn
             // 
-            this.Auto_btn.Location = new System.Drawing.Point(573, 522);
+            this.Auto_btn.Location = new System.Drawing.Point(573, 382);
             this.Auto_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Auto_btn.Name = "Auto_btn";
             this.Auto_btn.Size = new System.Drawing.Size(86, 29);
@@ -476,19 +498,39 @@ namespace PMC_2HS_Sample_Program_KOR
             // 
             // suspand_time1_label
             this.suspand_time1_label.AutoSize = true;
-            this.suspand_time1_label.Location = new System.Drawing.Point(250, 519);
+            this.suspand_time1_label.Location = new System.Drawing.Point(100, 519);
             this.suspand_time1_label.Name = "suspand_time1_label";
-            this.suspand_time1_label.Size = new System.Drawing.Size(125, 15); // Auto_suspand_time1 글자의 너비만큼 조정
+            this.suspand_time1_label.Size = new System.Drawing.Size(55, 15); // 너비 조정
             this.suspand_time1_label.TabIndex = 78;
             this.suspand_time1_label.Text = "Auto_suspand_time1:";
 
             // suspand_time2_label
             this.suspand_time2_label.AutoSize = true;
-            this.suspand_time2_label.Location = new System.Drawing.Point(250, 551);
+            this.suspand_time2_label.Location = new System.Drawing.Point(100, 551);
             this.suspand_time2_label.Name = "suspand_time2_label";
-            this.suspand_time2_label.Size = new System.Drawing.Size(125, 15); // Auto_suspand_time2 글자의 너비만큼 조정
+            this.suspand_time2_label.Size = new System.Drawing.Size(55, 15); // 너비 조정
             this.suspand_time2_label.TabIndex = 79;
             this.suspand_time2_label.Text = "Auto_suspand_time2:";
+
+            // SpeedY_time1_label
+            this.SpeedY_time1_label.AutoSize = true;
+            this.SpeedY_time1_label.Location = new System.Drawing.Point(425, 519);
+            this.SpeedY_time1_label.Name = "SpeedY_time1_label";
+            this.SpeedY_time1_label.Size = new System.Drawing.Size(55, 15); // 너비 조정
+            this.SpeedY_time1_label.TabIndex = 78;
+            this.SpeedY_time1_label.Text = "Auto_SpeedY_time1:";
+
+            // SpeedY_time2_label
+            this.SpeedY_time2_label.AutoSize = true;
+            this.SpeedY_time2_label.Location = new System.Drawing.Point(425, 551);
+            this.SpeedY_time2_label.Name = "SpeedY_time2_label";
+            this.SpeedY_time2_label.Size = new System.Drawing.Size(10, 10); // 너비 조정
+            this.SpeedY_time2_label.TabIndex = 79;
+            this.SpeedY_time2_label.Text = "Auto_SppedY_time2:";
+
+
+
+
             // 
             // Response_Textbox
             // 
@@ -574,6 +616,10 @@ namespace PMC_2HS_Sample_Program_KOR
             this.Controls.Add(this.suspand_time2_textbox);
             this.Controls.Add(this.suspand_time1_label);
             this.Controls.Add(this.suspand_time2_label);
+            this.Controls.Add(this.SpeedY_time1_textbox);
+            this.Controls.Add(this.SpeedY_time2_textbox);
+            this.Controls.Add(this.SpeedY_time1_label);
+            this.Controls.Add(this.SpeedY_time2_label);
             this.Controls.Add(this.Auto_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -629,7 +675,13 @@ namespace PMC_2HS_Sample_Program_KOR
         private System.Windows.Forms.Label suspand_time2_label;
         private System.Windows.Forms.TextBox suspand_time1_textbox; 
         private System.Windows.Forms.TextBox suspand_time2_textbox;
+        private System.Windows.Forms.TextBox SpeedY_time1_textbox;
+        private System.Windows.Forms.TextBox SpeedY_time2_textbox;
+        private System.Windows.Forms.Label SpeedY_time1_label;
+        private System.Windows.Forms.Label SpeedY_time2_label;
+
         private System.Windows.Forms.TextBox Response_Textbox;
+
         private System.Windows.Forms.DataVisualization.Charting.Chart POS_Chart;
     }
 }
