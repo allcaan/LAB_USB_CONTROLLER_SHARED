@@ -71,12 +71,12 @@ namespace PMC_2HS_Sample_Program_KOR
             this.label13 = new System.Windows.Forms.Label();
             this.Command_Textbox = new System.Windows.Forms.TextBox();
             this.Send_btn = new System.Windows.Forms.Button();
-            this.TimeX_Textbox = new System.Windows.Forms.TextBox();
-            this.TimeY_Textbox = new System.Windows.Forms.TextBox();
+            this.suspand_time1_textbox = new System.Windows.Forms.TextBox();
+            this.suspand_time2_textbox = new System.Windows.Forms.TextBox();
             this.Auto_btn = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.labelTimeX = new System.Windows.Forms.Label();
-            this.labelTimeY = new System.Windows.Forms.Label();
+            this.suspand_time1_label = new System.Windows.Forms.Label();
+            this.suspand_time2_label = new System.Windows.Forms.Label();
             this.Response_Textbox = new System.Windows.Forms.TextBox();
             this.POS_Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             Clear_Pos_btn = new System.Windows.Forms.Button();
@@ -440,21 +440,19 @@ namespace PMC_2HS_Sample_Program_KOR
             this.Send_btn.UseVisualStyleBackColor = true;
             this.Send_btn.Click += new System.EventHandler(this.Send_btn_Click);
             // 
-            // TimeX_Textbox
-            // 
-            this.TimeX_Textbox.Location = new System.Drawing.Point(310, 516);
-            this.TimeX_Textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TimeX_Textbox.Name = "TimeX_Textbox";
-            this.TimeX_Textbox.Size = new System.Drawing.Size(164, 25);
-            this.TimeX_Textbox.TabIndex = 76;
-            // 
-            // TimeY_Textbox
-            // 
-            this.TimeY_Textbox.Location = new System.Drawing.Point(310, 551);
-            this.TimeY_Textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TimeY_Textbox.Name = "TimeY_Textbox";
-            this.TimeY_Textbox.Size = new System.Drawing.Size(164, 25);
-            this.TimeY_Textbox.TabIndex = 77;
+            // suspand_time1_textbox
+            this.suspand_time1_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.suspand_time1_textbox.Location = new System.Drawing.Point(390, 516); // 위치 조정
+            this.suspand_time1_textbox.Name = "suspand_time1";
+            this.suspand_time1_textbox.Size = new System.Drawing.Size(164, 25);
+            this.suspand_time1_textbox.TabIndex = 76;
+
+            // suspand_time2_textbox
+            this.suspand_time2_textbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.suspand_time2_textbox.Location = new System.Drawing.Point(390, 551); // 위치 조정
+            this.suspand_time2_textbox.Name = "suspand_time2";
+            this.suspand_time2_textbox.Size = new System.Drawing.Size(164, 25);
+            this.suspand_time2_textbox.TabIndex = 77;
             // 
             // Auto_btn
             // 
@@ -476,23 +474,21 @@ namespace PMC_2HS_Sample_Program_KOR
             this.label14.TabIndex = 71;
             this.label14.Text = "Response";
             // 
-            // labelTimeX
-            // 
-            this.labelTimeX.AutoSize = true;
-            this.labelTimeX.Location = new System.Drawing.Point(250, 519);
-            this.labelTimeX.Name = "labelTimeX";
-            this.labelTimeX.Size = new System.Drawing.Size(56, 15);
-            this.labelTimeX.TabIndex = 78;
-            this.labelTimeX.Text = "Time X:";
-            // 
-            // labelTimeY
-            // 
-            this.labelTimeY.AutoSize = true;
-            this.labelTimeY.Location = new System.Drawing.Point(250, 551);
-            this.labelTimeY.Name = "labelTimeY";
-            this.labelTimeY.Size = new System.Drawing.Size(55, 15);
-            this.labelTimeY.TabIndex = 79;
-            this.labelTimeY.Text = "Time Y:";
+            // suspand_time1_label
+            this.suspand_time1_label.AutoSize = true;
+            this.suspand_time1_label.Location = new System.Drawing.Point(250, 519);
+            this.suspand_time1_label.Name = "suspand_time1_label";
+            this.suspand_time1_label.Size = new System.Drawing.Size(125, 15); // Auto_suspand_time1 글자의 너비만큼 조정
+            this.suspand_time1_label.TabIndex = 78;
+            this.suspand_time1_label.Text = "Auto_suspand_time1:";
+
+            // suspand_time2_label
+            this.suspand_time2_label.AutoSize = true;
+            this.suspand_time2_label.Location = new System.Drawing.Point(250, 551);
+            this.suspand_time2_label.Name = "suspand_time2_label";
+            this.suspand_time2_label.Size = new System.Drawing.Size(125, 15); // Auto_suspand_time2 글자의 너비만큼 조정
+            this.suspand_time2_label.TabIndex = 79;
+            this.suspand_time2_label.Text = "Auto_suspand_time2:";
             // 
             // Response_Textbox
             // 
@@ -574,10 +570,10 @@ namespace PMC_2HS_Sample_Program_KOR
             this.Controls.Add(this.Open_Btn);
             this.Controls.Add(this.GetposTextbox_X);
             this.Controls.Add(this.Get_Pos_btn);
-            this.Controls.Add(this.TimeX_Textbox);
-            this.Controls.Add(this.TimeY_Textbox);
-            this.Controls.Add(this.labelTimeX);
-            this.Controls.Add(this.labelTimeY);
+            this.Controls.Add(this.suspand_time1_textbox);
+            this.Controls.Add(this.suspand_time2_textbox);
+            this.Controls.Add(this.suspand_time1_label);
+            this.Controls.Add(this.suspand_time2_label);
             this.Controls.Add(this.Auto_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -629,10 +625,10 @@ namespace PMC_2HS_Sample_Program_KOR
         private System.Windows.Forms.Button Send_btn;
         private System.Windows.Forms.Button Auto_btn;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label labelTimeY;
-        private System.Windows.Forms.Label labelTimeX;
-        private System.Windows.Forms.TextBox TimeX_Textbox; 
-        private System.Windows.Forms.TextBox TimeY_Textbox;
+        private System.Windows.Forms.Label suspand_time1_label;
+        private System.Windows.Forms.Label suspand_time2_label;
+        private System.Windows.Forms.TextBox suspand_time1_textbox; 
+        private System.Windows.Forms.TextBox suspand_time2_textbox;
         private System.Windows.Forms.TextBox Response_Textbox;
         private System.Windows.Forms.DataVisualization.Charting.Chart POS_Chart;
     }

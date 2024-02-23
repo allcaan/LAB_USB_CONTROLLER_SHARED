@@ -31,15 +31,15 @@ namespace PMC_2HS_Sample_Program_KOR
             AxisList.Items.Add("XY Axis");
             AxisList.SelectedIndex = 0;
             SpeedX_Textbox.Text = "100";
-            SpeedY_Textbox.Text = "100";
+            SpeedY_Textbox.Text = "1000";
             GetposTextbox_X.Text = "0";
             GetposTextbox_Y.Text = "0";
             PAB_X_Textbox.Text = "1000";
             PAB_Y_Textbox.Text = "1000";
             PIC_X_Textbox.Text = "1000";
-            PIC_Y_Textbox.Text = "1000";
-            TimeX_Textbox.Text = "2";
-            TimeY_Textbox.Text = "2";
+            PIC_Y_Textbox.Text = "10000";
+            suspand_time1_textbox.Text = "1";
+            suspand_time2_textbox.Text = "1";
             //-------------------PMC 파라미터 초기화--------------------//  
 
 
@@ -350,41 +350,54 @@ namespace PMC_2HS_Sample_Program_KOR
          //----AUTO 실행버튼----//  */
         private async void Auto_btn_Click(object sender, EventArgs e)
         {
-            // Y 축 이동 명령 실행
-            string Command_spd = "SPD ," + SpeedY_Textbox.Text;
-            byte[] Query_Speed = GoProtocol.Command_Protocol(Command_spd);
-            GoSerial.SendSerialComm(Query_Speed, Query_Speed.Length);
+            try
+            {
+                // Y 축 이동 명령 실행
+                string Command_spd = "SPD ," + SpeedY_Textbox.Text;
+                byte[] Query_Speed = GoProtocol.Command_Protocol(Command_spd);
+                GoSerial.SendSerialComm(Query_Speed, Query_Speed.Length);
 
-            string Command_str = "PIC ," + PIC_Y_Textbox.Text;
-            byte[] Query_Command = GoProtocol.Command_Protocol(Command_str);
-            GoSerial.SendSerialComm(Query_Command, Query_Command.Length);
+                string Command_str = "PIC ," + PIC_Y_Textbox.Text;
+                byte[] Query_Command = GoProtocol.Command_Protocol(Command_str);
+                GoSerial.SendSerialComm(Query_Command, Query_Command.Length);
 
-            // 10초간 대기
-            await Task.Delay(int.Parse(PIC_Y_Textbox.Text) / int.Parse(SpeedY_Textbox.Text)+2000 ); // 10초 대기
-        
-            // X 축 이동 명령 실행
-            Command_spd = "SPD " + SpeedX_Textbox.Text;
-            Query_Speed = GoProtocol.Command_Protocol(Command_spd);
-            GoSerial.SendSerialComm(Query_Speed, Query_Speed.Length);
+                // 1초간 대기
+                await Task.Delay(TimeSpan.FromSeconds(double.Parse(PIC_Y_Textbox.Text) / (double.Parse(SpeedY_Textbox.Text)*10)) + TimeSpan.FromSeconds(double.Parse(suspand_time1_textbox.Text))); // 1초 대기
 
-            Command_str = "PIC " + PIC_X_Textbox.Text;
-            Query_Command = GoProtocol.Command_Protocol(Command_str);
-            GoSerial.SendSerialComm(Query_Command, Query_Command.Length);
+                // X 축 이동 명령 실행
+                Command_spd = "SPD " + SpeedX_Textbox.Text;
+                Query_Speed = GoProtocol.Command_Protocol(Command_spd);
+                GoSerial.SendSerialComm(Query_Speed, Query_Speed.Length);
 
-            // 10초간 대기
-            await Task.Delay( int.Parse(PIC_X_Textbox.Text)  / int.Parse(SpeedX_Textbox.Text)+2000); // 10초 대기
+                Command_str = "PIC " + PIC_X_Textbox.Text;
+                Query_Command = GoProtocol.Command_Protocol(Command_str);
+                GoSerial.SendSerialComm(Query_Command, Query_Command.Length);
 
-            // Y 축 이동 명령 실행 (다시)
-            Command_spd = "SPD ," +  SpeedY_Textbox.Text;
-            Query_Speed = GoProtocol.Command_Protocol(Command_spd);
-            GoSerial.SendSerialComm(Query_Speed, Query_Speed.Length);
+                // 1초간 대기
+                await Task.Delay(TimeSpan.FromSeconds(double.Parse(PIC_X_Textbox.Text) / (double.Parse(SpeedX_Textbox.Text) *10)) + TimeSpan.FromSeconds(double.Parse(suspand_time2_textbox.Text))); // 1초 대기
 
-            Command_str = "PIC ,-" + PIC_Y_Textbox.Text;
-            Query_Command = GoProtocol.Command_Protocol(Command_str);
-            GoSerial.SendSerialComm(Query_Command, Query_Command.Length);
+                // Y 축 이동 명령 실행 (다시)
+                Command_spd = "SPD ," + SpeedY_Textbox.Text;
+                Query_Speed = GoProtocol.Command_Protocol(Command_spd);
+                GoSerial.SendSerialComm(Query_Speed, Query_Speed.Length);
 
-            // 10초간 대기
-            await Task.Delay(int.Parse(PIC_Y_Textbox.Text) / int.Parse(SpeedY_Textbox.Text)+2000); // 10초 대기
+                Command_str = "PIC ,-" + PIC_Y_Textbox.Text;
+                Query_Command = GoProtocol.Command_Protocol(Command_str);
+                GoSerial.SendSerialComm(Query_Command, Query_Command.Length);
+
+                // 1초간 대기
+                await Task.Delay(TimeSpan.FromSeconds(double.Parse(PIC_Y_Textbox.Text) / (double.Parse(SpeedY_Textbox.Text)*10)) + TimeSpan.FromSeconds(1)); // 1초 대기
+            }
+            catch (FormatException ex)
+            {
+                // 변환 중 예외 처리
+                Console.WriteLine("입력 형식이 잘못되었습니다.");
+            }
+            catch (Exception ex)
+            {
+                // 다른 예외 처리
+                Console.WriteLine("오류가 발생했습니다: " + ex.Message);
+            }
         }
 
 
@@ -392,10 +405,9 @@ namespace PMC_2HS_Sample_Program_KOR
 
 
 
-
-
+       
     }
-
+    //ㅇㄴㅇㄴㅁㅇㅁㅁㄴㅁㅇ
 
 
 
